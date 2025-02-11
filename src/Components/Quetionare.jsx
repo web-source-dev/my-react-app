@@ -13,7 +13,19 @@ const Quiz = () => {
   const [questionTransition, setQuestionTransition] = useState(false); // For smooth transitions
   const [pdf, setPdf] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false); // New state for form submission
-  console.log("pdf", pdf);
+    useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://questionare-server.vercel.app/api/getAllSubmissions');
+        console.log("Fetched Data:", response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    
+    fetchData();
+  }, []);
+  
 
   // Load options for the current question
   const loadOptions = (questionName) => {
