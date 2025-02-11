@@ -16,7 +16,7 @@ const Quiz = () => {
     useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://questionare-server.onrender.com/api/getAllSubmissions');
+        const response = await axios.get('https://ha-kx04.onrender.com/api/getAllSubmissions');
         console.log("Fetched Data:", response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -74,7 +74,7 @@ const Quiz = () => {
       };
 
       console.log("userDataToSubmit", userDataToSubmit);
-      const response = await axios.post('https://questionare-server.onrender.com/api/submitUserData', userDataToSubmit);
+      const response = await axios.post('https://ha-kx04.onrender.com/api/submitUserData', userDataToSubmit);
       console.log("Response:", response);
       setPdf(response.data.data.pdfUrl); // Update to use response.data.data.pdfUrl
       setFormSubmitted(true); // Set form submitted state
